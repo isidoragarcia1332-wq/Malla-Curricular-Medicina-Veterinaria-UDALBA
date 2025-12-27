@@ -1,1 +1,120 @@
+:root {
+    --bg-color: #f0f2f5;
+    --primary: #6c5ce7; /* Morado */
+    --secondary: #00cec9; /* Celeste */
+    --text-dark: #2d3436;
+    --card-bg: #ffffff;
+    --locked-bg: #dfe6e9;
+    --approved-bg: #00b894;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.app-container {
+    padding: 20px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.stats-bar {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#btn-reset {
+    background-color: #ff7675;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn-reset:hover { background-color: #d63031; }
+
+/* Grid de la Malla */
+.malla-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Permite scroll horizontal en móviles */
+    padding-bottom: 20px;
+}
+
+.semestre-col {
+    min-width: 200px;
+    flex: 1;
+}
+
+.semestre-col h2 {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--primary);
+    border-bottom: 3px solid var(--secondary);
+    padding-bottom: 10px;
+}
+
+/* Tarjetas de Ramos */
+.ramo-card {
+    background: var(--card-bg);
+    border-left: 5px solid var(--primary);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, background 0.3s;
+    position: relative;
+}
+
+.ramo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(108, 92, 231, 0.2);
+}
+
+/* Estado Aprobado */
+.ramo-card.aprobado {
+    background-color: var(--approved-bg);
+    color: white;
+    text-decoration: line-through;
+    border-left-color: #55efc4;
+}
+
+/* Estado Bloqueado */
+.ramo-card.bloqueado {
+    background-color: var(--locked-bg);
+    opacity: 0.7;
+    cursor: not-allowed;
+    border-left-color: #b2bec3;
+}
+
+/* Notificación Toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2d3436;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 1000;
+    transition: 0.5s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hidden { display: none; }
